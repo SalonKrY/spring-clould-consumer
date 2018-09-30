@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.User;
+import com.example.demo.service.IFeignService;
 import com.example.demo.service.IUserService;
 
 import io.swagger.annotations.Api;
@@ -50,4 +51,16 @@ public class TestController {
 		 throw new Exception("发生异常");
 	}
 	
+	@GetMapping("/testRibbon")
+	public String testRibbon() {
+		return userService.getTestRibbon();
+	}
+	
+	@Autowired
+	private IFeignService feignService;
+	
+	@GetMapping("/testFeign")
+	public String testFeign() {
+		return feignService.testFeign();
+	}
 }

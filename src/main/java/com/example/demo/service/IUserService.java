@@ -5,4 +5,6 @@ import com.example.demo.bean.User;
 public interface IUserService {
 	
 	public User queryUser(String id);
+	
+	public String getTestRibbon();
 }

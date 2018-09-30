@@ -11,9 +11,7 @@ spring:
    password: root
  application:
   #注意这里是作为服务注册名称，在eureka注册中心注册这个名称，自动转化为全大写，之后调用服务用服务名调用
-  name: user-service 
- freemarker:
-  prefer-file-system-access: false
+  name: user-service-consumer 
 eureka:
   instance:
     hostname: localhost
@@ -23,7 +21,7 @@ eureka:
     ## 是否从eureka服务器获取注册信息，所以这里是false
     fetch-registry: true 
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://127.0.0.1:8001/eureka/
 mybatis:
  mapper-locations: classpath:mybatis/mapper/*.xml
  config-location: classpath:mybatis/mybatis-config.xml
