@@ -25,5 +25,17 @@ eureka:
 mybatis:
  mapper-locations: classpath:mybatis/mapper/*.xml
  config-location: classpath:mybatis/mybatis-config.xml
+ ## 开启hystrix
+feign:
+ hystrix:
+  enabled: true
+## hystrix熔断触发默认超时时间
+hystrix:
+ command:
+  default:
+    execution:
+      isolation:
+        thread:
+          timeoutInMilliseconds: 2000
  
  
