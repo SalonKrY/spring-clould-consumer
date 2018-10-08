@@ -4,7 +4,9 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -63,4 +65,16 @@ public class TestController {
 	public String testFeign() {
 		return feignService.testFeign();
 	}
+	
+	@Autowired
+	private RedisTemplate<String,Object> redisTemplate;
+	
+	@GetMapping("/testRedis")
+	public String testRedis() {
+	    redisTemplate.opsForValue().set("a", "1");
+        Object a = redisTemplate.opsForValue().get("a");
+        System.out.println(a);
+        return a.toString();
+	}
+	
 }

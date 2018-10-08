@@ -9,6 +9,18 @@ spring:
    url: jdbc:mysql://localhost:3306/springboot    
    username: root    
    password: root
+ ## Redis配置信息
+ redis:
+  database: 0
+  host: 127.0.0.1
+  port: 6379
+  password:
+  timeout: 3000
+  pool:
+    max-active: 200
+    max-wait: 1000
+    max-idle: 500
+    min-idle: 50
  application:
   #注意这里是作为服务注册名称，在eureka注册中心注册这个名称，自动转化为全大写，之后调用服务用服务名调用
   name: user-service-consumer 
